@@ -11,7 +11,6 @@ import { MembersComponent } from './components/admin/members/members.component';
 import { ScanComponent } from './components/admin/scan/scan.component';
 import { MapComponent } from './components/main/map/map.component';
 import { AppRoutingModule } from './common-modules/app-routing.module';
-import { TemplateComponent } from './components/template/template.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from './common-modules/material.module';
 import { MainComponent } from './components/main/main.component';
@@ -27,7 +26,6 @@ import { BadgeComponent } from './components/main/badge/badge.component';
     MembersComponent,
     ScanComponent,
     MapComponent,
-    TemplateComponent,
     BadgeComponent
   ],
   imports: [
