@@ -1,13 +1,15 @@
 :host {
-    height: 100%;
+    min-height: 100%;
     width: 100%;
+    height: auto;
     overflow: hidden;
 }
 
 .app-container {
-    height: 100%;
+    min-height: 100%;
     width: 100%;
     background: #f1f5ff;
     display: flex;
+    height: auto;
     align-items: stretch;
 }

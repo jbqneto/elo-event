@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IMember } from 'src/app/models/member.model';
+import { EventMember, IMember } from 'src/app/models/member.model';
 import { AppService } from 'src/app/services/app/app.service';
 import { SessionKeys, SessionService } from 'src/app/services/session/sesssion.service';
-
-interface EventMember extends IMember {
-  checked: boolean;
-  confirmed: boolean | null;
-}
 
 @Component({
   selector: 'app-members',

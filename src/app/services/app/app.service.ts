@@ -74,10 +74,8 @@ export class AppService {
         try {
           
           const jsonData = JSON.parse(response.data.substring(47).slice(0, -2));
-          const members: Member[] = this.formatData(jsonData.table.rows as SheetRow[]);
-          members.shift();
-          
-          console.log(members);
+          const members: Member[] = this.formatData(jsonData.table.rows as SheetRow[])
+            .filter((member) => member.name !== '' && member.name !== 'Nome')
 
           const sorted = members.sort((a, b) => {
             const nameA = a.name.toUpperCase();
