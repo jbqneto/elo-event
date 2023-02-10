@@ -56,7 +56,7 @@ export class AppService {
   public async login(user: string, phone: string): Promise<Member | null> {
     const members = await this.getMembers();
     const formatedName = user.trim().toLowerCase();
-    const formatedPhone = phone.replaceAll(' ', '');
+    const formatedPhone = phone.replaceAll(' ', '').replaceAll('-','');
 
     console.log(members);
     console.log('look: ' + formatedName + ' '  + formatedPhone);
