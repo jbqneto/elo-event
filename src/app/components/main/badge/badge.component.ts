@@ -21,7 +21,7 @@ export class BadgeComponent implements OnInit, AfterViewInit {
   public ngAfterViewInit(): void {
     console.log(this.user);
     QRCoder.generate('qr-code', {
-      content: `${this.user?.id}`,
+      content: `member:${this.user?.id}`,
       height: 128,
       width: 128,
     })
