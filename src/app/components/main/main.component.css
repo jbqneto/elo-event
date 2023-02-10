@@ -19,9 +19,12 @@
 .footer {
     flex-shrink: 0;
     background: #865aff;
-    min-height: 8vh;
+    height: 8vh;
     border-top: 1px solid #5e3bbe;
     padding: 2px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .menu {

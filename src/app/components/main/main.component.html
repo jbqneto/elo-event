@@ -9,7 +9,7 @@
     </div>
     <div class="footer">
         <nav [ngClass]="{'admin': isAdmin}" class="menu">
-            <div matRipple *ngIf="!isAdmin"  [routerLink]="''" class="menu-item">
+            <div matRipple *ngIf="!isAdmin"  [routerLink]="'main'" class="menu-item">
                 <mat-icon class="icon" aria-hidden="false" aria-label="icon account" fontIcon="home"></mat-icon>
             </div>
             <div matRipple *ngIf="isAdmin"  [routerLink]="'admin/scan'" class="menu-item">
