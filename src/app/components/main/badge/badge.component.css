@@ -1,0 +1,26 @@
+:host {
+    width: 100%;
+    height: 100%;
+}
+
+.qr-code {
+    padding-top: 16px;
+}
+
+.bagde-wrapper {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    text-align: center;
+
+}
+
+.name h3 {
+    font-size: 18px;
+}

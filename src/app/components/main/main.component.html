@@ -1,7 +1,11 @@
 <div class="content-wrapper">
     <div class="header"></div>
     <div class="content">
-        <router-outlet></router-outlet>
+        <div class="main-content-wrapper">
+            <div class="main-content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
     </div>
     <div class="footer">
         <nav [ngClass]="{'admin': isAdmin}" class="menu">
