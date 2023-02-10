@@ -5,6 +5,11 @@ export interface IMember {
     admin: boolean;
 }
 
+export interface EventMember extends IMember {
+    checked: boolean;
+    confirmed: boolean | null;
+}
+
 export class Member implements IMember {
     public id: number;
     public name: string;
