@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
   public ngOnInit(): void {
     if (this.router.url === '/main/logout') {
       this.session.clear();
-      this.gotoLogin(10); 
+      this.gotoLogin(100); 
     }
   }
 
