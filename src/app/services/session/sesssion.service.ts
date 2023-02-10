@@ -20,7 +20,8 @@ export class SessionService {
     }
 
     public clear() {
-
+        this.remove(SessionKeys.USER);
+        this.remove(SessionKeys.MEMBERS);
     }
 
     public get<T>(key: SessionKeys): T | null {

@@ -55,9 +55,14 @@ export class AppService {
   
   public async login(user: string, phone: string): Promise<Member | null> {
     const members = await this.getMembers();
+    const formatedName = user.trim().toLowerCase();
+    const formatedPhone = phone.replaceAll(' ', '');
 
-    return members.find((member) => member.getFirstName()?.toLowerCase() === user.trim().toLowerCase() 
-      && phone.trim().replaceAll(' ', '') === member.getFormatedPhone()) || null;
+    console.log(members);
+    console.log('look: ' + formatedName + ' '  + formatedPhone);
+
+    return members.find((member) => member.getFirstName()?.toLowerCase() === formatedName  
+      && formatedPhone === member.getFormatedPhone()) || null;
   }
 
   public async getMembers(): Promise<Member[]> {
@@ -98,8 +103,8 @@ export class AppService {
 
       return new Member({
         id: row.getId(),
-        name: row.getName() ?? '',
-        phone: row.getPhone() ?? '',
+        name: row.getName()?.trim() ?? '',
+        phone: row.getPhone()?.replaceAll('-', '').replaceAll(' ', '') ?? '',
         admin: row.getAdmin() === 'x'
       });
     });

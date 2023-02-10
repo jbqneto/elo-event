@@ -14,6 +14,7 @@ const routes: Route[] = [
   { path: 'login', component: LoginComponent },
   { path: 'main', component: MainComponent, children: [
       { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'logout', component: HomeComponent, pathMatch: 'full' },
       { path: 'badge', component: BadgeComponent, pathMatch: 'full' },
       { path: 'map', component: MapComponent, pathMatch: 'full' },
       { path: 'admin/members', component: MembersComponent, pathMatch: 'full' },

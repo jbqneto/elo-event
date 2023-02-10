@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IMember, Member } from 'src/app/models/member.model';
 import { SessionKeys, SessionService } from 'src/app/services/session/sesssion.service';
@@ -8,7 +8,7 @@ import { SessionKeys, SessionService } from 'src/app/services/session/sesssion.s
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   public user: string = '';
 
   private member: Member | null = null;
@@ -25,10 +25,20 @@ export class HomeComponent {
     } catch (error) {
       console.log(error);
       this.session.remove(SessionKeys.USER);
-      setTimeout(() => {
-        this.router.navigate(['/login']);  
-      }, 500);
-      
+      this.gotoLogin();
     }
+  }
+
+  public ngOnInit(): void {
+    if (this.router.url === '/main/logout') {
+      this.session.clear();
+      this.gotoLogin(100); 
+    }
+  }
+
+  private gotoLogin(timeout = 500) {
+    setTimeout(() => {
+      this.router.navigate(['/login']);  
+    }, timeout);
   }
 }
