@@ -21,7 +21,7 @@ export class Member implements IMember {
     public getFirstName(): string | null {
         const names = this.name?.split(' ') ?? [];
 
-        return names.length > 0 ? names[0] : null;
+        return names.length > 0 ? names[0].trim() : null;
     }
 
     public getFormatedPhone(): string {

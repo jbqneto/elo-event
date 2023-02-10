@@ -13,6 +13,7 @@ export class ScanComponent implements OnInit, OnDestroy {
   public onScanSuccess(decodedText: any, decodedResult: any) {
     // handle the scanned code as you like, for example:
     console.log(`Code matched = ${decodedText}`, decodedResult);
+    window.alert(JSON.stringify(decodedText));
   }
 
   public onScanFailure(error: any) {

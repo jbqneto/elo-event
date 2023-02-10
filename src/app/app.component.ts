@@ -16,9 +16,6 @@ export class AppComponent {
   }
 
   public ngOnInit(): void {
-    this.updateOnlineStatus();
-
-
     window.addEventListener('online',  this.updateOnlineStatus.bind(this));
     window.addEventListener('offline', this.updateOnlineStatus.bind(this));
   }

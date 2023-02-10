@@ -54,10 +54,9 @@ export class AppService {
   constructor() { }
   
   public async login(user: string, phone: string): Promise<Member | null> {
-    console.log('searching: ' + user, phone);
     const members = await this.getMembers();
 
-    return members.find((member) => member.getFirstName()?.toLowerCase() === user.toLowerCase() 
+    return members.find((member) => member.getFirstName()?.toLowerCase() === user.trim().toLowerCase() 
       && phone.trim().replaceAll(' ', '') === member.getFormatedPhone()) || null;
   }
 
@@ -68,11 +67,26 @@ export class AppService {
 
     return new Promise((resolve, reject) => {
       axios.get(url).then((response) => {
-        const jsonData = JSON.parse(response.data.substring(47).slice(0, -2));
-        const members: Member[] = this.formatData(jsonData.table.rows as SheetRow[]);
-        members.shift();
+        try {
+          
+          const jsonData = JSON.parse(response.data.substring(47).slice(0, -2));
+          const members: Member[] = this.formatData(jsonData.table.rows as SheetRow[]);
+          members.shift();
+          
+          const sorted = members.sort((a, b) => {
+            const nameA = a.name.toUpperCase();
+            const nameB = b.name.toUpperCase();
 
-        resolve(members);
+            return (nameA < nameB) ? -1 : (nameA > nameB) ? 1 : 0;
+          });
+
+          console.log(members);
+
+          resolve(sorted);
+        
+        } catch (error) {
+          reject(error);  
+        }
         
       });
     });    
