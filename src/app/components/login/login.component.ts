@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   public ngOnInit(): void {
       const user = this.session.get(SessionKeys.USER);
-      
+      console.log(user);
       if (user) {
         this.navigate();
       }

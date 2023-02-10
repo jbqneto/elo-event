@@ -61,8 +61,7 @@ export class AppService {
     console.log(members);
     console.log('look: ' + formatedName + ' '  + formatedPhone);
 
-    return members.find((member) => member.getFirstName()?.toLowerCase() === formatedName  
-      && formatedPhone === member.getFormatedPhone()) || null;
+    return members.find((member) => formatedPhone === member.getFormatedPhone()) || null;
   }
 
   public async getMembers(): Promise<Member[]> {
@@ -78,6 +77,8 @@ export class AppService {
           const members: Member[] = this.formatData(jsonData.table.rows as SheetRow[]);
           members.shift();
           
+          console.log(members);
+
           const sorted = members.sort((a, b) => {
             const nameA = a.name.toUpperCase();
             const nameB = b.name.toUpperCase();
@@ -99,12 +100,10 @@ export class AppService {
     return rows.map((r) => {
       const row = new Row(r.c);
 
-      console.log(row);
-
       return new Member({
         id: row.getId(),
         name: row.getName()?.trim() ?? '',
-        phone: row.getPhone()?.replaceAll('-', '').replaceAll(' ', '') ?? '',
+        phone: row.getPhone()?.replaceAll(' ', '').replaceAll('-', '') ?? '',
         admin: row.getAdmin() === 'x'
       });
     });
