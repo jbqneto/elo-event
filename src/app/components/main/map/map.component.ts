@@ -7,7 +7,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent {
-  public mapUrl: string = 'https://www.google.com/maps/@-7.275722,-34.895194,16z?hl=pt-BR'
+  private mapUrl: string ='https://goo.gl/maps/LJt7VrVYenuYHcpN8';
 
   public constructor(private sanitizer: DomSanitizer) {}
 
