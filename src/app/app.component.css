@@ -1,0 +1,13 @@
+:host {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.app-container {
+    height: 100%;
+    width: 100%;
+    background: #f1f5ff;
+    display: flex;
+    align-items: stretch;
+}

@@ -1,0 +1,43 @@
+<div class="login-wrapper">
+    <div class="header">
+        <div class="logo">
+            <img src="/assets/img/logo.png" alt="">
+        </div>
+    </div>
+    <div class="login">
+        <mat-card class="card">
+            <mat-card-title>Login</mat-card-title>
+            <mat-card-content class="card-content">
+                <form [formGroup]="form" (ngSubmit)="submit()">
+                <p>
+                    <mat-form-field class="app-input">
+                        <mat-label>Primeiro Nome</mat-label>
+                        <input type="text" matInput placeholder="josé" formControlName="username">
+                    </mat-form-field>
+                </p>
+                
+                <p>
+                    <mat-form-field class="app-input">
+                        <mat-label>Telefone</mat-label>
+                        <input type="text" maxlength="12" matInput placeholder="83999582334" formControlName="phone">
+                    </mat-form-field>
+                </p>
+                
+                <div *ngIf="error" class="error">
+                    <span>
+                        {{ error }}
+                    </span>
+                </div>
+                
+                <div class="button">
+                    <button type="submit" mat-button>Entrar</button>
+                </div>
+                
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="footer">
+        <h3>Criado por <strong>José Bezerra Neto</strong></h3>
+    </div>
+</div>

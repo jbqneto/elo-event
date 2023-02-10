@@ -1,6 +1,6 @@
 {
   "name": "pwa-elo-event",
-  "short_name": "pwa-elo-event",
+  "short_name": "Elo Networking",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
