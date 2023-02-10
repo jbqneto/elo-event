@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IMember, Member } from 'src/app/models/member.model';
-import { SessionService } from 'src/app/services/session/sesssion.service';
+import { SessionKeys, SessionService } from 'src/app/services/session/sesssion.service';
 
 @Component({
   selector: 'app-main',
@@ -12,7 +12,7 @@ export class MainComponent {
   public isAdmin: boolean = false;
 
   constructor(private session: SessionService) {
-    const user = session.get<IMember>('user');
+    const user = session.get<IMember>(SessionKeys.USER);
 
     if (user !== null) {
       this.member = new Member(user);

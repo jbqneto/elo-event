@@ -80,8 +80,6 @@ export class AppService {
             return (nameA < nameB) ? -1 : (nameA > nameB) ? 1 : 0;
           });
 
-          console.log(members);
-
           resolve(sorted);
         
         } catch (error) {

@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IMember } from 'src/app/models/member.model';
 import { QRCoder } from 'src/app/services/qr-code/qr-code.service';
-import { SessionService } from 'src/app/services/session/sesssion.service';
+import { SessionKeys, SessionService } from 'src/app/services/session/sesssion.service';
 
 @Component({
   selector: 'app-badge',
@@ -15,7 +15,7 @@ export class BadgeComponent implements OnInit, AfterViewInit {
   constructor(private session: SessionService) {}
 
   public ngOnInit(): void {
-      this.user = this.session.get('user') ?? null;
+      this.user = this.session.get(SessionKeys.USER) ?? null;
   }
 
   public ngAfterViewInit(): void {

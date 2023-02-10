@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { IMember, Member } from 'src/app/models/member.model';
-import { SessionService } from 'src/app/services/session/sesssion.service';
+import { SessionKeys, SessionService } from 'src/app/services/session/sesssion.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,7 @@ export class HomeComponent {
 
   public constructor(private session: SessionService, private router: Router) {
     try {
-      const dbUser = session.get<IMember>('user');
+      const dbUser = session.get<IMember>(SessionKeys.USER);
 
       if (dbUser === null)
         throw new Error('User not found on session');
@@ -24,7 +24,7 @@ export class HomeComponent {
       this.user = this.member?.getFirstName() ?? '';  
     } catch (error) {
       console.log(error);
-      this.session.remove('user');
+      this.session.remove(SessionKeys.USER);
       setTimeout(() => {
         this.router.navigate(['/login']);  
       }, 500);

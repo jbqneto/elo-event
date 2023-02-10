@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/services/app/app.service';
-import { SessionService } from 'src/app/services/session/sesssion.service';
+import { SessionKeys, SessionService } from 'src/app/services/session/sesssion.service';
 
 @Component({
   selector: 'app-login',
@@ -21,8 +21,11 @@ export class LoginComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-      const user = this.session.get('user');
-      console.log(user);
+      const user = this.session.get(SessionKeys.USER);
+      
+      if (user) {
+        this.navigate();
+      }
   }
 
   public async submit() {
@@ -34,10 +37,8 @@ export class LoginComponent implements OnInit {
     const user = await this.appService.login(value.username, value.phone);
 
     if (user) {
-      this.session.put('user', user);
-      setTimeout(() => {
-        this.router.navigate(['/main']);
-      }, 500);
+      this.session.put(SessionKeys.USER, user);
+      this.navigate();
     } else {
       this.error = 'Combinação de primeiro nome e telefone não encontrados.';
       this.form.enable();
@@ -45,6 +46,12 @@ export class LoginComponent implements OnInit {
         this.error = '';
       }, 8_000);
     }
+  }
+
+  private navigate(): void {
+    setTimeout(() => {
+      this.router.navigate(['/main']);
+    }, 100);
   }
 
 }
