@@ -4,7 +4,6 @@
 
 :host {
     width: 100%;
-    height: 100%;
 }
 
 .content-wrapper {
@@ -22,8 +21,8 @@
     padding: 70px 8px 80px 8px;
 }
 
-
-.main-content {
+.main-content-wrapper {
+    flex: 1;
     overflow-x: hidden;
     overflow-y: auto;
     height: auto;
