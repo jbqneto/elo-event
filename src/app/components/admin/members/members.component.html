@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <mat-list role="list">
         <mat-list-item class="list-item" *ngFor="let guest of guests" role="listitem">
-            <div class="member">
+            <div [id]="'member-'+guest?.id" class="member">
                 <div class="name">
                     <span>{{guest.name}}</span>
                 </div>
