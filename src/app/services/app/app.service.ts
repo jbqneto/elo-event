@@ -78,8 +78,8 @@ export class AppService {
             .filter((member) => member.name !== '' && member.name !== 'Nome')
 
           const sorted = members.sort((a, b) => {
-            const nameA = a.name.toUpperCase();
-            const nameB = b.name.toUpperCase();
+            const nameA = a.getNormalizedName().toUpperCase();
+            const nameB = b.getNormalizedName().toUpperCase();
 
             return (nameA < nameB) ? -1 : (nameA > nameB) ? 1 : 0;
           });

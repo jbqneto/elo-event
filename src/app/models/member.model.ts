@@ -32,5 +32,9 @@ export class Member implements IMember {
     public getFormatedPhone(): string {
         return this.phone.trim().replaceAll(' ', '');
     }
+
+    public getNormalizedName(): string {
+        return this.name.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+    }
     
 }

@@ -31,6 +31,7 @@
             ],
             "scripts": [
               "./src/assets/qr-code.js",
+              "./node_modules/piesocket-js/dist/main.js",
               "./src/assets/external.js"
             ],
             "serviceWorker": true,
