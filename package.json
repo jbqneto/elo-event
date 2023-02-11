@@ -25,6 +25,7 @@
     "@types/axios": "^0.14.0",
     "axios": "^1.3.2",
     "html5-qrcode": "^2.3.4",
+    "ngx-mask": "^15.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

@@ -21,6 +21,7 @@ export class Member implements IMember {
         this.name = init.name;
         this.phone = init.phone;
         this.admin = init.admin;
+
     }
 
     public getFirstName(): string | null {
@@ -30,7 +31,15 @@ export class Member implements IMember {
     }
 
     public getFormatedPhone(): string {
-        return this.phone.trim().replaceAll(' ', '');
+        let phone = this.phone.trim().replaceAll(' ', '');
+
+        //completo
+        if (phone.length > 11) {
+            phone = phone.substring(0,2) + '9' + phone.substring(2);
+            console.log(phone);
+        }
+
+        return phone;
     }
 
     public getNormalizedName(): string {
