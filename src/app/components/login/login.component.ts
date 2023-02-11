@@ -29,9 +29,13 @@ export class LoginComponent implements OnInit {
   }
 
   public async submit() {
-
+    const remind = 'Lembre-se de colocar o telefone com DDD (ex: 83988582356)'
     const value = this.form.getRawValue();
     
+    if (value.phone.length !== 11) {
+      this.error = 'Tamanho do tefone inválido.' + remind;
+    }
+
     this.form.disable();
 
     const user = await this.appService.login(value.username, value.phone);
@@ -40,7 +44,7 @@ export class LoginComponent implements OnInit {
       this.session.put(SessionKeys.USER, user);
       this.navigate();
     } else {
-      this.error = 'Telefone não encontrados. Lembre-se de colocar o telefone com DDD (ex: 83999999999)';
+      this.error = 'Telefone não encontrados. ' + remind;
       this.form.enable();
       setTimeout(() => {
         this.error = '';
