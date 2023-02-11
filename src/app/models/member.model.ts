@@ -33,12 +33,6 @@ export class Member implements IMember {
     public getFormatedPhone(): string {
         let phone = this.phone.trim().replaceAll(' ', '');
 
-        //completo
-        if (phone.length > 11) {
-            phone = phone.substring(0,2) + '9' + phone.substring(2);
-            console.log(phone);
-        }
-
         return phone;
     }
 

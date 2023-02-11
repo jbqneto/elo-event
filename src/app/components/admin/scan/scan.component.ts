@@ -31,12 +31,14 @@ export class ScanComponent implements OnInit, OnDestroy {
 
   private confirmUser(id: number) {
     const members = this.session.get<EventMember[]>(SessionKeys.MEMBERS) ?? [];
-    const member = (members ?? []).find((mem) => mem.id === id);
+    const member = (members ?? []).find((mem) => mem.id == id);
 
     if (member) {
       member.checked = true;
     } else {
       console.log('NOT FOUND: ' + id);
+      console.log(members);
+      return;
     }
 
     this.session.put(SessionKeys.MEMBERS, members);
