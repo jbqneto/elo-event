@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       this.session.put(SessionKeys.USER, user);
       this.navigate();
     } else {
-      this.error = 'Combinação de primeiro nome e telefone não encontrados.';
+      this.error = 'Telefone não encontrados. Lembre-se de colocar o telefone com DDD (ex: 83999999999)';
       this.form.enable();
       setTimeout(() => {
         this.error = '';
