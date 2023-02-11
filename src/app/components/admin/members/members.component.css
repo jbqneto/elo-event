@@ -7,6 +7,18 @@
     justify-content: space-between;
 }
 
-.member small {
-    padding-left: 5px;
+.member .phone small {
+    padding-left: 8px;
 } 
+
+.toggle-phone {
+    padding-left: 4px;
+}
+
+.show-phone .toggle-phone {
+    opacity: 0.5;
+}
+
+.toggle-phone .mat-icon {
+    transform: scale(0.75);
+}

@@ -2,8 +2,11 @@
     <mat-list role="list">
         <mat-list-item class="list-item" *ngFor="let guest of guests" role="listitem">
             <div [id]="'member-'+guest?.id" class="member">
-                <div (click)="getUserInfo(guest)" class="name">
+                <div [ngClass]="{'show-phone': showPhone(guest)}" (click)="getUserInfo(guest)" class="name">
                     <span>{{guest.name}}</span>
+                    <span class="toggle-phone">
+                        <mat-icon aria-hidden="false" aria-label="icon account" fontIcon="call"></mat-icon>
+                    </span>
                     <span *ngIf="showPhone(guest)" class="phone">
                         <small>({{guest.phone}})</small>
                     </span>
